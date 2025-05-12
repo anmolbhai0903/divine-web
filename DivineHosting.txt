@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divine Hosting - Minecraft Server Hosting</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #7fff00;
+    }
+    .intro {
+      padding: 20px;
+      text-align: center;
+    }
+    .intro p {
+      max-width: 600px;
+      margin: 10px auto;
+      font-size: 18px;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .plan {
+      background-color: #222;
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .plan:hover {
+      transform: scale(1.05);
+      border-color: #7fff00;
+    }
+    .plan h2 {
+      color: #7fff00;
+      margin-bottom: 10px;
+    }
+    .plan ul {
+      list-style: none;
+      padding: 0;
+    }
+    .plan ul li {
+      margin: 8px 0;
+    }
+    .price {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffcc00;
+    }.auth {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+.auth h2 {
+  margin-bottom: 20px;
+  color: #7fff00;
+}
+.auth input[type="text"],
+.auth input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+}
+.auth button {
+  background-color: #7fff00;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.auth button:hover {
+  background-color: #aaff00;
+}
+
+.zombie-animation {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: -100px;
+  transform: translateY(-50%);
+  width: 100px;
+  animation: runZombie 2s forwards;
+  z-index: 9999;
+}
+@keyframes runZombie {
+  0% { left: -100px; }
+  100% { left: 100%; }
+}
+
+  </style>
+  <script>
+    function showPage(page) {
+      document.getElementById("home").style.display = page === 'home' ? 'block' : 'none';
+      document.getElementById("login").style.display = page === 'login' ? 'block' : 'none';
+      document.getElementById("register").style.display = page === 'register' ? 'block' : 'none';
+    }function playZombieAnimation(callback) {
+  const zombie = document.getElementById("zombie");
+  zombie.style.display = 'block';
+  setTimeout(() => {
+    zombie.style.display = 'none';
+    callback();
+  }, 2000);
+}
+
+function login() {
+  playZombieAnimation(() => showPage('home'));
+}
+
+function register() {
+  playZombieAnimation(() => showPage('home'));
+}
+
+  </script>
+</head>
+<body onload="showPage('login')">
+  <img id="zombie" class="zombie-animation" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/8/85/Zombie_JE3_BE3.png" alt="Running Zombie">  <!-- LOGIN PAGE -->  <div id="login" class="auth">
+    <h2>Login to Divine Hosting</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="#" onclick="showPage('register')">Register</a></p>
+  </div>  <!-- REGISTER PAGE -->  <div id="register" class="auth" style="display: none;">
+    <h2>Register at Divine Hosting</h2>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="#" onclick="showPage('login')">Login</a></p>
+  </div>  <!-- HOME PAGE -->  <div id="home" style="display: none;">
+    <header>
+      <h1>Divine Hosting</h1>
+      <p>Your Ultimate Minecraft Server Hosting Solution</p>
+    </header><section class="intro">
+  <p>Welcome to Divine Hosting, where your Minecraft dreams become a reality. We offer high-performance servers, instant setup, DDoS protection, and 24/7 support. Whether you're just starting or running a large community, we have a plan for you.</p>
+</section>
+
+<section class="plans">
+  <div class="plan">
+    <h2>DIRT PLAN</h2>
+    <ul>
+      <li>RAM: 4GB</li>
+      <li>CPU: 100%</li>
+      <li>DISK: 25GB</li>
+    </ul>
+    <div class="price">₹50/month</div>
+  </div>
+  <div class="plan">
+    <h2>WOOD PLAN</h2>
+    <ul>
+      <li>RAM: 8GB</li>
+      <li>CPU: 200%</li>
+      <li>DISK: 30GB</li>
+    </ul>
+    <div class="price">₹100/month</div>
+  </div>
+  <div class="plan">
+    <h2>STONE PLAN</h2>
+    <ul>
+      <li>RAM: 12GB</li>
+      <li>CPU: 300%</li>
+      <li>DISK: 40GB</li>
+    </ul>
+    <div class="price">₹150/month</div>
+  </div>
+  <div class="plan">
+    <h2>COAL PLAN</h2>
+    <ul>
+      <li>RAM: 16GB</li>
+      <li>CPU: 400%</li>
+      <li>DISK: 50GB</li>
+    </ul>
+    <div class="price">₹180/month</div>
+  </div>
+  <div class="plan">
+    <h2>IRON PLAN</h2>
+    <ul>
+      <li>RAM: 24GB</li>
+      <li>CPU: 400%</li>
+      <li>DISK: 64GB</li>
+    </ul>
+    <div class="price">₹370/month</div>
+  </div>
+  <div class="plan">
+    <h2>GOLD PLAN</h2>
+    <ul>
+      <li>RAM: 32GB</li>
+      <li>CPU: 800%</li>
+      <li>DISK: 256GB</li>
+    </ul>
+    <div class="price">₹550/month</div>
+  </div>
+  <div class="plan">
+    <h2>DIAMOND PLAN</h2>
+    <ul>
+      <li>RAM: 48GB</li>
+      <li>CPU: 1200%</li>
+      <li>DISK: 384GB</li>
+    </ul>
+    <div class="price">₹750/month</div>
+  </div>
+  <div class="plan">
+    <h2>NETHERITE PLAN</h2>
+    <ul>
+      <li>RAM: 64GB</li>
+      <li>CPU: 2400%</li>
+      <li>DISK: 512GB</li>
+    </ul>
+    <div class="price">₹1500/month</div>
+  </div>
+</section>
+
+  </div>
+</body>
+</html>
